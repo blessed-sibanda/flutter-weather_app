@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/app_settings.dart';
 import 'package:weather_app/styles.dart';
 
 void main() {
-  runApp(const MyApp());
+  AppSettings settings = AppSettings();
+
+  runApp(
+    MyApp(settings: settings),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final AppSettings settings;
+
+  const MyApp({Key? key, required this.settings}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
