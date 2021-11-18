@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = ThemeData(
       fontFamily: 'Cabin',
-      primarySwatch: Colors.blue,
+      primaryColor: AppColor.midnightSky,
+      primaryTextTheme: Theme.of(context).textTheme.apply(
+            bodyColor: AppColor.textColorDark,
+            displayColor: AppColor.textColorDark,
+          ),
+      textTheme: Theme.of(context).textTheme.apply(
+            bodyColor: AppColor.textColorDark,
+            displayColor: AppColor.textColorDark,
+          ),
     );
     return MaterialApp(
       title: 'Weather App',
@@ -38,7 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: const Center(
+        child: Text('Weather App'),
+      ),
     );
   }
 }
