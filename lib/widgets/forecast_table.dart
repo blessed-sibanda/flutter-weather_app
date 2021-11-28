@@ -9,7 +9,7 @@ import 'package:weather_app/widgets/color_transition_text.dart';
 class ForecastTableView extends StatelessWidget {
   final AppSettings settings;
   final AnimationController controller;
-  final Tween<Color> textColorTween;
+  final ColorTween textColorTween;
   final Forecast forecast;
 
   const ForecastTableView({

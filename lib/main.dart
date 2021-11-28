@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     final theme = ThemeData(
       fontFamily: 'Cabin',
       primaryColor: AppColor.midnightSky,
+      secondaryHeaderColor: AppColor.midnightCloud,
       primaryTextTheme: Theme.of(context).textTheme.apply(
             bodyColor: AppColor.textColorDark,
             displayColor: AppColor.textColorDark,

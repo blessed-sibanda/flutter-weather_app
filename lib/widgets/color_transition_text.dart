@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class ColorTransitionText extends AnimatedWidget {
   final String text;
-  final TextStyle style;
-  final Animation<Color> animation;
+  final TextStyle? style;
+  final Animation<Color?> animation;
 
   const ColorTransitionText({
     Key? key,
     required this.text,
-    required this.style,
+    this.style,
     required this.animation,
   }) : super(key: key, listenable: animation);
 
@@ -16,7 +16,7 @@ class ColorTransitionText extends AnimatedWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style.copyWith(color: animation.value),
+      style: style?.copyWith(color: animation.value),
     );
   }
 }

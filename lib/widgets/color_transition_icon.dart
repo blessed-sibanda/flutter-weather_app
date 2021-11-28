@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ColorTransitionIcon extends AnimatedWidget {
   final IconData icon;
   final double size;
-  final Animation<Color> animation;
+  final Animation<Color?> animation;
 
   const ColorTransitionIcon({
     Key? key,

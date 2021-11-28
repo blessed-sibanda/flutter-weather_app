@@ -37,10 +37,10 @@ class _ForecastPageState extends State<ForecastPage>
   late ForecastController _forecastController;
   late AnimationController _animationController;
   late AnimationController _weatherConditionAnimationController;
-  late Tween<Color> _colorTween;
-  late Tween<Color> _backgroundColorTween;
-  late Tween<Color> _textColorTween;
-  late Tween<Color> _cloudColorTween;
+  late ColorTween _colorTween;
+  late ColorTween _backgroundColorTween;
+  late ColorTween _textColorTween;
+  late ColorTween _cloudColorTween;
   late Tween<Offset> _positionOffsetTween;
   late TweenSequence<Offset> _cloudPositionOffsetTween;
   late ForecastAnimationState currentAnimationState;
@@ -133,9 +133,10 @@ class _ForecastPageState extends State<ForecastPage>
   }
 
   void _buildAnimationController() {
-    _animationController.dispose();
-    _animationController = AnimationController(vsync: this);
-    _weatherConditionAnimationController.dispose();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
     _weatherConditionAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
@@ -146,22 +147,22 @@ class _ForecastPageState extends State<ForecastPage>
     _colorTween = ColorTween(
       begin: currentAnimationState.sunColor,
       end: nextAnimationState.sunColor,
-    ) as Tween<Color>;
+    );
 
     _backgroundColorTween = ColorTween(
       begin: currentAnimationState.backgroundColor,
       end: nextAnimationState.backgroundColor,
-    ) as Tween<Color>;
+    );
 
     _textColorTween = ColorTween(
       begin: currentAnimationState.textColor,
       end: nextAnimationState.textColor,
-    ) as Tween<Color>;
+    );
 
     _cloudColorTween = ColorTween(
       begin: currentAnimationState.cloudColor,
       end: nextAnimationState.cloudColor,
-    ) as Tween<Color>;
+    );
 
     _positionOffsetTween = Tween<Offset>(
       begin: currentAnimationState.sunOffsetPosition,
@@ -220,12 +221,12 @@ class _ForecastPageState extends State<ForecastPage>
         children: [
           ColorTransitionText(
             text: _weatherDescription,
-            style: Theme.of(context).textTheme.headline1!,
+            style: Theme.of(context).textTheme.headline3!,
             animation: _textColorTween.animate(_animationController),
           ),
           ColorTransitionText(
             text: _currentTemp,
-            style: Theme.of(context).textTheme.headline3!,
+            style: Theme.of(context).textTheme.headline5!,
             animation: _textColorTween.animate(_animationController),
           ),
         ],
@@ -239,12 +240,13 @@ class _ForecastPageState extends State<ForecastPage>
           _handleStateChange(selectedTabIndex),
       startIndex: activeTabIndex,
     );
+
     return Scaffold(
       appBar: PreferredSize(
         child: TransitionAppBar(
             title: ColorTransitionText(
               text: _forecastController.selectedHourlyTemperature!.city.name,
-              style: Theme.of(context).textTheme.headline1!,
+              style: Theme.of(context).textTheme.headline5!,
               animation: _textColorTween.animate(_animationController),
             ),
             actionIcon: widget.settingsButton,
@@ -301,7 +303,7 @@ class _ForecastPageState extends State<ForecastPage>
                       mainContent,
                       Flexible(child: timePickerRow),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

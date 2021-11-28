@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Sun extends AnimatedWidget {
-  final Animation<Color> animation;
+  final Animation<Color?> animation;
 
   Sun({Key? key, required this.animation})
       : super(key: key, listenable: animation);

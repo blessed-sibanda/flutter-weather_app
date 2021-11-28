@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorTransitionBox extends AnimatedWidget {
-  final Animation<Color> animation;
+  final Animation<Color?> animation;
   final Widget child;
 
   const ColorTransitionBox({

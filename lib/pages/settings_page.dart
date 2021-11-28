@@ -78,24 +78,29 @@ class _SettingsPageState extends State<SettingsPage> {
               },
             ),
             const Divider(),
-            Expanded(child: ListView.builder(
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: allAddedCities.length,
                 itemBuilder: (BuildContext context, int index) {
-              final city = allAddedCities[index];
-              return Dismissible(
-                key: ValueKey(city),
-                child: CheckboxListTile(
-                  onChanged: (bool? b) => _handleCityActiveChange(b!, city),
-                  title: Text(city.name),
-                  value: city.active,
-                ),
-                background: Container(
-                  child: const Icon(Icons.delete_forever),
-                  decoration: BoxDecoration(color: Colors.red[700]),
-                ),
-                onDismissed: (DismissDirection dir) =>
-                    _handleDismiss(dir, city),
-              );
-            }))
+                  final city = allAddedCities[index];
+                  return Dismissible(
+                    key: ValueKey(city),
+                    child: CheckboxListTile(
+                      onChanged: (bool? b) => _handleCityActiveChange(b!, city),
+                      title: Text(city.name),
+                      value: city.active,
+                    ),
+                    background: Container(
+                      child: const Icon(Icons.delete_forever),
+                      decoration: BoxDecoration(color: Colors.red[700]),
+                    ),
+                    onDismissed: (DismissDirection dir) =>
+                        _handleDismiss(dir, city),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

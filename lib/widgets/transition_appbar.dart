@@ -4,7 +4,7 @@ class TransitionAppBar extends AnimatedWidget {
   final Widget title;
   final Widget actionIcon;
   final Widget? leadingAction;
-  final Animation<Color> animation;
+  final Animation<Color?> animation;
 
   const TransitionAppBar({
     Key? key,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Clouds extends AnimatedWidget {
   final bool isRaining;
-  final Animation<Color> animation;
+  final Animation<Color?> animation;
 
   const Clouds({
     Key? key,
@@ -14,7 +14,7 @@ class Clouds extends AnimatedWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var _paintBrush = Paint()
-      ..color = animation.value
+      ..color = animation.value!
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
