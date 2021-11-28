@@ -221,12 +221,12 @@ class _ForecastPageState extends State<ForecastPage>
         children: [
           ColorTransitionText(
             text: _weatherDescription,
-            style: Theme.of(context).textTheme.headline3!,
+            style: Theme.of(context).textTheme.headline5!,
             animation: _textColorTween.animate(_animationController),
           ),
           ColorTransitionText(
             text: _currentTemp,
-            style: Theme.of(context).textTheme.headline5!,
+            style: Theme.of(context).textTheme.headline2!,
             animation: _textColorTween.animate(_animationController),
           ),
         ],
