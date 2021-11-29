@@ -50,9 +50,9 @@ class _PageContainerState extends State<PageContainer> {
         },
         itemBuilder: (BuildContext context) {
           return allAddedCities
-              .where((city) => city.active)
+              .where((city) => city.active!)
               .map((city) =>
-                  PopupMenuItem(child: Text(city.name), value: city.name))
+                  PopupMenuItem(child: Text(city.name!), value: city.name))
               .toList();
         },
       ),

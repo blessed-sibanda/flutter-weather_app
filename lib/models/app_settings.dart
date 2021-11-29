@@ -16,19 +16,25 @@ List<City> allAddedCities = [
 ];
 
 class City {
-  String name;
-  Country country;
-  bool active = false;
+  String? name;
+  Country? country;
+  bool? active = false;
   bool isDefault = false;
   int? listIdx;
 
   City({
-    required this.name,
-    required this.country,
-    required this.active,
+    this.name,
+    this.country,
+    this.active,
     this.listIdx,
   }) {
     listIdx ??= allAddedCities.length + 1;
+  }
+
+  City.fromUserInput() {
+    if (this.listIdx == null) {
+      this.listIdx = allAddedCities.length + 1;
+    }
   }
 
   @override

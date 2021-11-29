@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/app_settings.dart';
 import 'package:weather_app/models/weather.dart';
+import 'package:weather_app/pages/add_city_page.dart';
 import 'package:weather_app/styles.dart';
 import 'package:weather_app/utils/humanize.dart';
 import 'package:weather_app/widgets/segmented_control.dart';
@@ -32,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
       allAddedCities.removeWhere((city) => city == removedCity);
       if (widget.settings.activeCity == removedCity) {
         widget.settings.activeCity =
-            allAddedCities.firstWhere((city) => city.active);
+            allAddedCities.firstWhere((city) => city.active!);
       }
     }
   }
@@ -71,7 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   MaterialPageRoute(
                     fullscreenDialog: true,
                     builder: (BuildContext context) {
-                      return Container();
+                      return AddNewCityPage(settings: widget.settings);
                     },
                   ),
                 );
@@ -88,7 +89,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     key: ValueKey(city),
                     child: CheckboxListTile(
                       onChanged: (bool? b) => _handleCityActiveChange(b!, city),
-                      title: Text(city.name),
+                      title: Text(city.name!),
                       value: city.active,
                     ),
                     background: Container(

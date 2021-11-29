@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:weather_app/models/app_settings.dart';
 import 'package:weather_app/pages/page_container.dart';
 import 'package:weather_app/styles.dart';
 
-Future<void> main() async {
+void main() {
   AppSettings settings = AppSettings();
-
-  // Don't allow landscape mode
-  await SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   runApp(
     MyApp(settings: settings),

@@ -244,14 +244,15 @@ class _ForecastPageState extends State<ForecastPage>
     return Scaffold(
       appBar: PreferredSize(
         child: TransitionAppBar(
-            title: ColorTransitionText(
-              text: _forecastController.selectedHourlyTemperature!.city.name,
-              style: Theme.of(context).textTheme.headline5!,
-              animation: _textColorTween.animate(_animationController),
-            ),
-            actionIcon: widget.settingsButton,
-            leadingAction: widget.menu,
-            animation: _backgroundColorTween.animate(_animationController)),
+          title: ColorTransitionText(
+            text: _forecastController.selectedHourlyTemperature!.city.name!,
+            style: Theme.of(context).textTheme.headline5!,
+            animation: _textColorTween.animate(_animationController),
+          ),
+          actionIcon: widget.settingsButton,
+          leadingAction: widget.menu,
+          animation: _backgroundColorTween.animate(_animationController),
+        ),
         preferredSize: Size.fromHeight(ui.appBarHeight(context)),
       ),
       body: GestureDetector(
