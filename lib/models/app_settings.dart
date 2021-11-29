@@ -43,6 +43,7 @@ class City {
   int get hashCode => name.hashCode ^ country.hashCode ^ listIdx.hashCode;
 }
 
+// class to faker persisting user settings
 class AppSettings {
   TemperatureUnit selectedTemperatureUnit = TemperatureUnit.celsius;
   City activeCity = allAddedCities[0];
