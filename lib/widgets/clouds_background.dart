@@ -18,7 +18,7 @@ class Clouds extends AnimatedWidget {
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
-    return Container(
+    return SizedBox(
       height: 300.0,
       child: CustomPaint(
         size: screenSize,
